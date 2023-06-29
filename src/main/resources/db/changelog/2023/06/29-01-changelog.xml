@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1688049414573-1" author="glaschenko (generated)">
+        <createSequence incrementBy="50" sequenceName="owner_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1688049414573-2" author="glaschenko (generated)">
+        <createSequence incrementBy="50" sequenceName="pet_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1688049414573-3" author="glaschenko (generated)">
+        <createSequence incrementBy="50" sequenceName="pet_type_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1688049414573-4" author="glaschenko (generated)">
+        <createSequence incrementBy="50" sequenceName="speciality_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1688049414573-5" author="glaschenko (generated)">
+        <createSequence incrementBy="50" sequenceName="user_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1688049414573-6" author="glaschenko (generated)">
+        <createSequence incrementBy="50" sequenceName="veterinarian_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1688049414573-7" author="glaschenko (generated)">
+        <createSequence incrementBy="50" sequenceName="visit_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1688049414573-8" author="glaschenko (generated)">
+        <createTable tableName="owner">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_owner"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1688049414573-9" author="glaschenko (generated)">
+        <createTable tableName="pet">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_pet"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="identification_number" type="VARCHAR(255)"/>
+            <column name="birth_date" type="DATE"/>
+            <column name="pet_type_id" type="BIGINT"/>
+            <column name="owner_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1688049414573-10" author="glaschenko (generated)">
+        <createTable tableName="pet_type">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_pet_type"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="color" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1688049414573-11" author="glaschenko (generated)">
+        <createTable tableName="speciality">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_speciality"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1688049414573-12" author="glaschenko (generated)">
+        <createTable tableName="user">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user"/>
+            </column>
+            <column name="user_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1688049414573-13" author="glaschenko (generated)">
+        <createTable tableName="veterinarian">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_veterinarian"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1688049414573-14" author="glaschenko (generated)">
+        <createTable tableName="veterinarian_specialities">
+            <column name="specialities_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_veterinarian_specialities"/>
+            </column>
+            <column name="veterinarian_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_veterinarian_specialities"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1688049414573-15" author="glaschenko (generated)">
+        <createTable tableName="visit">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_visit"/>
+            </column>
+            <column name="visit_type" type="VARCHAR(255)"/>
+            <column name="assigned_nurse_id" type="BIGINT"/>
+            <column name="pet_id" type="BIGINT"/>
+            <column name="visit_start" type="DATE"/>
+            <column name="visit_end" type="DATE"/>
+            <column name="treatment_status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1688049414573-16" author="glaschenko (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_user_email" tableName="user"/>
+    </changeSet>
+    <changeSet id="1688049414573-17" author="glaschenko (generated)">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="pet" constraintName="FK_PET_ON_OWNER"
+                                 referencedColumnNames="id" referencedTableName="owner"/>
+    </changeSet>
+    <changeSet id="1688049414573-18" author="glaschenko (generated)">
+        <addForeignKeyConstraint baseColumnNames="pet_type_id" baseTableName="pet" constraintName="FK_PET_ON_PET_TYPE"
+                                 referencedColumnNames="id" referencedTableName="pet_type"/>
+    </changeSet>
+    <changeSet id="1688049414573-19" author="glaschenko (generated)">
+        <addForeignKeyConstraint baseColumnNames="assigned_nurse_id" baseTableName="visit"
+                                 constraintName="FK_VISIT_ON_ASSIGNED_NURSE" referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1688049414573-20" author="glaschenko (generated)">
+        <addForeignKeyConstraint baseColumnNames="pet_id" baseTableName="visit" constraintName="FK_VISIT_ON_PET"
+                                 referencedColumnNames="id" referencedTableName="pet"/>
+    </changeSet>
+    <changeSet id="1688049414573-21" author="glaschenko (generated)">
+        <addForeignKeyConstraint baseColumnNames="specialities_id" baseTableName="veterinarian_specialities"
+                                 constraintName="fk_vetspe_on_speciality" referencedColumnNames="id"
+                                 referencedTableName="speciality"/>
+    </changeSet>
+    <changeSet id="1688049414573-22" author="glaschenko (generated)">
+        <addForeignKeyConstraint baseColumnNames="veterinarian_id" baseTableName="veterinarian_specialities"
+                                 constraintName="fk_vetspe_on_veterinarian" referencedColumnNames="id"
+                                 referencedTableName="veterinarian"/>
+    </changeSet>
+
+</databaseChangeLog>

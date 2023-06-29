@@ -6,15 +6,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "pet_type")
-public class PetType extends NamedEntity{
+@MappedSuperclass
+public class NamedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "color", nullable = false)
-    private String color;
+    @Column(name = "name")
+    private String name;
 
 }

@@ -26,10 +26,6 @@ public class Visit {
     @JoinColumn(name = "assigned_nurse_id")
     private User assignedNurse;
 
-    @ManyToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "pet_id")
-    private Pet pet;
-
     @Column(name = "visit_start")
     private LocalDate visitStart;
 
@@ -39,5 +35,9 @@ public class Visit {
     @Enumerated(EnumType.STRING)
     @Column(name = "treatment_status")
     private VisitTreatmentStatus treatmentStatus;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
 
 }

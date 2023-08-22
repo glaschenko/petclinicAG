@@ -13,4 +13,8 @@ public class PetType extends NamedEntity{
     @Column(name = "color", nullable = false)
     private String color;
 
+    @Override
+    public String toString() {
+        return "PetType: "+ color + " " + getName();
+    }
 }

@@ -4,4 +4,21 @@
     <option name="jpaConfigPersistentUnitInitialized" value="true" />
     <option name="devtoolsMode" value="AUTO" />
   </component>
+  <component name="SpringBootStudioDatabaseMigrationConfig">
+    <database-infos>
+      <database-info>
+        <option name="enabled" value="true" />
+        <dbms-id>postgres</dbms-id>
+      </database-info>
+    </database-infos>
+  </component>
+  <component name="SpringBootStudioPersistenceUnitConfig">
+    <persistence-units>
+      <persistence-unit name="Default" defaultIncludeChangeLogFile="src/main/resources/db/changelog/db.changelog-master.xml">
+        <packages>
+          <package value="com.ag.petclinicAG" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
 </project>

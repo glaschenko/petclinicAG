@@ -3,7 +3,9 @@ package com.ag.petclinicAG.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.Audited;
 
+@Audited
 @Getter
 @Setter
 @Entity

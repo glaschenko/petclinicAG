@@ -9,6 +9,8 @@ import org.springframework.boot.web.servlet.context.ServletWebServerInitializedE
 import org.springframework.context.ApplicationStartupAware;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.metrics.ApplicationStartup;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,6 +49,11 @@ public class PetTypeController implements ApplicationStartupAware {
     @EventListener
     public void handleServletWebServerInitializedEvent(ServletWebServerInitializedEvent event) {
         System.out.println("PetTypeController: running on port " + event.getWebServer().getPort());
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<String> handleException(Exception ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @GetMapping("/{name}")

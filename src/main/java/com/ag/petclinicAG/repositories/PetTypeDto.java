@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 @Data
 public class PetTypeDto implements Serializable {
-    private final Long id;
-    private final String name;
-    private final String color;
+    private Long id;
+    private String name;
+    private String color;
 }

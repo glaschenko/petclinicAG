@@ -2,8 +2,8 @@ package com.ag.petclinicAG.controllers;
 
 import com.ag.petclinicAG.entities.PetType;
 import com.ag.petclinicAG.entities.envers.AuditEnversInfo;
-import com.ag.petclinicAG.repositories.PetTypeHistoryDto;
-import com.ag.petclinicAG.repositories.PetTypeHistoryMapper;
+import com.ag.petclinicAG.dto.PetTypeHistoryDto;
+import com.ag.petclinicAG.mappers.PetTypeHistoryMapper;
 import com.ag.petclinicAG.repositories.PetTypeRevisionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.history.Revisions;

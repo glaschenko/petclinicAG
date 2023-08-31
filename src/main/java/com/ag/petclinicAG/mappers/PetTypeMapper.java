@@ -1,5 +1,6 @@
-package com.ag.petclinicAG.repositories;
+package com.ag.petclinicAG.mappers;
 
+import com.ag.petclinicAG.dto.PetTypeDto;
 import com.ag.petclinicAG.entities.PetType;
 
 @org.mapstruct.Mapper(unmappedTargetPolicy = org.mapstruct.ReportingPolicy.IGNORE, componentModel = "spring")

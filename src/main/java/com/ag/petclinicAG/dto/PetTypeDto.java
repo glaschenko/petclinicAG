@@ -1,4 +1,4 @@
-package com.ag.petclinicAG.repositories;
+package com.ag.petclinicAG.dto;
 
 import lombok.Data;
 

@@ -38,8 +38,13 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 	compileOnly 'org.mapstruct:mapstruct:1.5.3.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+//	compileOnly 'org.hibernate:hibernate-jpamodelgen:6.2.7.Final'
+	annotationProcessor 'org.hibernate:hibernate-jpamodelgen:6.2.7.Final'
 	implementation 'org.springframework.data:spring-data-envers'
 	implementation("org.springframework.boot:spring-boot-starter-web")
+
+	compile "com.querydsl:querydsl-jpa:5.0.0"
+	annotationProcessor("com.querydsl:querydsl-apt:5.0.0:general")
 }
 
 tasks.named('test') {

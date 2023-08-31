@@ -1,9 +1,8 @@
 package com.ag.petclinicAG.controllers;
 
 import com.ag.petclinicAG.entities.PetType;
-import com.ag.petclinicAG.repositories.PetTypeDto;
-import com.ag.petclinicAG.repositories.PetTypeHistoryMapper;
-import com.ag.petclinicAG.repositories.PetTypeMapper;
+import com.ag.petclinicAG.dto.PetTypeDto;
+import com.ag.petclinicAG.mappers.PetTypeMapper;
 import com.ag.petclinicAG.repositories.PetTypeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.servlet.context.ServletWebServerInitializedEvent;
